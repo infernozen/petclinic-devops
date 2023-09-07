@@ -1,9 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Git-clone') {
             steps {
-                git credentialsId: 'git-credentials', url: 'https://github.com/infernozen/packer.git'
+                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/infernozen/packer.git'
             }
         }
     }
