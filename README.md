@@ -1,2 +1,2 @@
-# A self healing application deployed using custom machine 
+# A self healing application deployed using custom Machine Image
 ***currently building***
