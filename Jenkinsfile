@@ -1,10 +1,12 @@
 pipeline {
     agent any
     stages {
-        stage('Git-clone') {
-            steps {
-                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/infernozen/packer.git'
-            }
+        stage('packer-init'){
+            steps{
+                echo 'Initializing Packer'
+                sh '/usr/bin/packer init gcp-mi-v1.pkr.hcl'
+            }           
         }
     }
 }
+
