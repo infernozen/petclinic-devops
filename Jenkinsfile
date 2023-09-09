@@ -1,11 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('packer-init'){
+        stage('packer-valid'){
             steps{
-                echo 'Initializing Packer'
-                sh '/usr/bin/packer init gcp-mi-v1.pkr.hcl'
+                echo 'validating Packer'
+                sh '/usr/bin/packer valid gcp-mi-v1.pkr.hcl'
             }           
+        }
+        stage('packer-build'){
+            steps{
+                echo 'building image'
+                sh '/usr/bin/packer build gcp-mi-v1.pkr.hcl'
+            }
         }
     }
 }
