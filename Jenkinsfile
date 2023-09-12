@@ -17,7 +17,7 @@ pipeline {
             steps {
                 withCredentials([file(credentialsId: 'gcp-credential', variable: 'GOOGLE_CREDENTIALS_JSON')]) {
                     script {
-                        def googleCredentials = readFile('/var/jenkins_home/secrets/your-credential-id')
+                        def googleCredentials = readFile GOOGLE_CREDENTIALS_JSON
                         writeFile file: 'gcp-key.json', text: googleCredentials
                         sh '''
                             ls -l gcp-key.json
