@@ -1,6 +1,17 @@
 pipeline {
     agent any
     stages {
+        stage('Clean Workspace') {
+            steps {
+                deleteDir()
+            }
+        }
+        stage('Clone Git Repository') {
+            steps {
+                echo 'cloning Git Repository'
+                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/infernozen/packer.git'
+            }
+        }
         stage('packer-init') {
             steps {
                 echo 'initializing Packer'
@@ -20,8 +31,6 @@ pipeline {
                         def googleCredentials = readFile GOOGLE_CREDENTIALS_JSON
                         writeFile file: 'gcp-key.json', text: googleCredentials
                         sh '''
-                            ls -l gcp-key.json
-                            cat gcp-key.json
                             gcloud auth activate-service-account --key-file=gcp-key.json
                             echo 'Building Machine Image'
                             sh '/usr/bin/packer build gcp-mi-v1.pkr.hcl'
