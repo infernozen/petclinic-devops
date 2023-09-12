@@ -16,9 +16,8 @@ pipeline {
         stage('packer-build'){
             steps{
                 withCredentials([file(credentialsId: 'gcp-credential', variable: 'GOOGLE_CREDENTIALS_JSON')]){
-                    def googleCredentials = env.GOOGLE_CREDENTIALS_JSON
                     sh '''\
-                        echo '${googleCredentials}' > gcp-key.json
+                        echo '${GOOGLE_CREDENTIALS_JSON}' > gcp-key.json
                         ls -l gcp-key.json
                         cat gcp-key.json
                         gcloud auth activate-service-account --key-file=gcp-key.json
