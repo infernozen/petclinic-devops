@@ -16,12 +16,12 @@ pipeline {
         stage('packer-build'){
             steps{
                 withCredentials([file(credentialsId: 'gcp-credential', variable: 'GOOGLE_CREDENTIALS_JSON')]){
-                    sh """\
+                    sh '''\
                         echo '$GOOGLE_CREDENTIALS_JSON' > gcp-key.json
                         gcloud auth activate-service-account --key-file=gcp-key.json
                         echo 'Building Machine Image'
                         sh '/usr/bin/packer build gcp-mi-v1.pkr.hcl'
-                    """
+                    '''
                 }                
             }
         }
