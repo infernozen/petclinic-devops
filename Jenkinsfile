@@ -33,8 +33,8 @@ pipeline {
                         sh '''
                             gcloud auth activate-service-account --key-file=gcp-key.json
                             echo 'Building Machine Image'
+                            /usr/bin/packer build gcp-mi-v1.pkr.hcl
                         '''
-                        sh '/usr/bin/packer build gcp-mi-v1.pkr.hcl'
                     }
                 }
             }
