@@ -15,7 +15,7 @@ packer {
 source "googlecompute" "google-linux" {
   project_id          = "infernozen"
   machine_type        = "e2-micro"
-  account_file        = "key.json"
+  account_file        = "gcp-key.json"
   image_name          = "gcp-ami-{{timestamp}}"
   source_image        = "ubuntu-2004-focal-v20230907"
   source_image_family = "ubuntu-2004-lts"
