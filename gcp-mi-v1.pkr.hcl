@@ -13,7 +13,7 @@ packer {
 
 # which machine-image to use as the base and where to save it
 source "googlecompute" "google-linux" {
-  project_id        = "infernozen"
+  project_id        = "ubuntu-os-cloud"
   machine_type      = "e2-micro"
   image_name        = "gcp-ami-{{timestamp}}"
   source_image      = "ubuntu-2004-focal-v20230907"
