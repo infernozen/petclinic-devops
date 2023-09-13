@@ -13,12 +13,13 @@ packer {
 
 # which machine-image to use as the base and where to save it
 source "googlecompute" "google-linux" {
-  project_id        = "ubuntu-os-cloud"
-  machine_type      = "e2-micro"
-  image_name        = "gcp-ami-{{timestamp}}"
-  source_image      = "ubuntu-2004-focal-v20230907"
-  ssh_username      = "rosangcp"
-  zone              = "asia-south1-c"
+  project_id          = "infernozen"
+  machine_type        = "e2-micro"
+  image_name          = "gcp-ami-{{timestamp}}"
+  source_image        = "ubuntu-2004-focal-v20230907"
+  source_image_family = "ubuntu-2004-lts"
+  ssh_username        = "rosangcp"
+  zone                = "asia-south1-c"
 }
 
 # what to install, configure and file to copy/execute
