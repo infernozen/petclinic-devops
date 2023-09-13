@@ -14,10 +14,9 @@ packer {
 # which machine-image to use as the base and where to save it
 source "googlecompute" "google-linux" {
   project_id        = "infernozen"
-  region            = "ap-southeast-2"
   machine_type       = "e2-micro"
   image_name        = "gcp-ami-{{timestamp}}"
-  source_image_family = "ubuntu-2004-lts"
+  source_image_family = "ubuntu-2004-lts-arm64"
   ssh_username      = "rosangcp"
   zone              = "asia-south1-c"
 }
