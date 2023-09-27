@@ -11,5 +11,5 @@ curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
 sudo bash add-google-cloud-ops-agent-repo.sh --also-install
 
 #insall docker 
-sudo apt install docker.io
+sudo apt install docker.io -y
 sudo systemctl start docker
