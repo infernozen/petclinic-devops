@@ -15,10 +15,9 @@ packer {
 source "googlecompute" "google-linux" {
   project_id          = "infernozen"
   machine_type        = "e2-micro"
-  image_name          = "gcp-ami-{{timestamp}}"
-  source_image        = "ubuntu-2004-focal-v20230907"
-  source_image_family = "ubuntu-2004-lts"
-  ssh_username        = "rosangcp"
+  image_name          = "gcp-mi-{{timestamp}}"
+  source_image        = "ubuntu-2004-focal-v20230918"
+  ssh_username        = "packeruser"
   zone                = "asia-south1-c"
 }
 
