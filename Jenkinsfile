@@ -32,6 +32,7 @@ pipeline {
                         writeFile file: 'gcp-key.json', text: googleCredentials
                         sh '''
                             gcloud auth activate-service-account --key-file=gcp-key.json
+                            mv gcp-key.json $HOME/.config/gcloud/application_default_credentials.json
                             echo 'Building Machine Image'
                             /usr/bin/packer build gcp-mi-v1.pkr.hcl
                         '''
