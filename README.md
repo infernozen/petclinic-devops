@@ -13,4 +13,4 @@ The goal of this project is to deploy a self healing appication across multiple 
 By pre-building machine images using Packer and provisioner (Here i used shell script) , you have ready-to-use images that contain your application and configurations. When autoscaling, these pre-baked images can be launched much faster than provisioning instances from scratch. This reduces the time it takes to add new instances to your environment, minimizing downtime.
 
 ![phase_1](images/phase_1.png)
-# Currently working on phase 1
+# Currently working on phase 2 ( I will update this repo once the project is done)
