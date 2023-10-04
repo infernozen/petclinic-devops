@@ -1,17 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir()
-            }
-        }
-        stage('Clone Git Repository') {
-            steps {
-                echo 'cloning Git Repository'
-                git branch: 'main', credentialsId: 'git-credentials', url: 'https://github.com/infernozen/packer.git'
-            }
-        }
         stage('packer-init') {
             steps {
                 echo 'initializing Packer'
