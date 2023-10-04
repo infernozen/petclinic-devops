@@ -16,3 +16,4 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
 
 phase 1 is done 
 # Currently working on phase 2 ( I will update this repo once the project is done)
+![phase_2](images/phase_2.png)
