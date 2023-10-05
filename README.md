@@ -36,7 +36,13 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
  
 > ***NOTE: Dont store your Cloud credentials/secrets on any public repository. In this Demo I used Jenkins Credentials to store the Secrets of my gcp service account.***
 
-I have attached a video of me running the pipeline.
+==================== I will upload a demo video here =====================
 
 # Building and Pushing Docker Images with Security checks:
+***Why are we doing this?***
+
+Building and pushing Docker images with security checks is imperative to safeguard our applications and infrastructure. These security checks, integrated into our CI/CD pipeline, proactively identify and mitigate vulnerabilities within our code and dependencies, reducing the risk of security breaches and ensuring the integrity of our containers. By addressing potential threats at the image-building stage, we fortify our applications against known vulnerabilities, making them more resilient and secure when deployed
+
+> In this project, I'll be setting up multiple pipelines tailored for specific needs. For instance, we won't need to generate machine images with the same frequency as building Docker images. Machine image updates are likely to be less frequent in comparison to Docker image builds.
+
 ![phase_2](images/phase_2.png)
