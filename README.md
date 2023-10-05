@@ -26,7 +26,7 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
 **Steps:**
 1. Configure an VM and Install the above packages.
 2. Configure an firewall rule named ***'allow-jenkins'*** to enable tcp-connection on port 8080.
-3. Create a new repository named ***'packer'*** (your name) and upload your Jenkinsfile,*.pkr.hcl file and provisioner.sh file (If you are using ansible, upload your playbook file instead) 
+3. Create a new repository named ***'packer'*** (your name) and upload your `Jenkinsfile`,`*.pkr.hcl` file and `provisioner.sh` file (If you are using ansible, upload your playbook file instead) 
 4. Once you setup the Jenkinsfile, Navigate to ***http://[ExternalIP]:8080*** to access the Jenkins server.
 5. Store the gcp service account keys (which has necessary permissions) in Jenkins Credentials.
 6. Create a Jenkins CI Pipeline with the packer repository using git SCM. Make sure to change Branches to build option from ***Master*** to ***main***.
@@ -46,3 +46,22 @@ Building and pushing Docker images with security checks is imperative to safegua
 > In this project, I'll be setting up multiple pipelines tailored for specific needs. For instance, we won't need to generate machine images with the same frequency as building Docker images. Machine image updates are likely to be less frequent in comparison to Docker image builds.
 
 ![phase_2](images/phase_2.png)
+
+ ***Prerequisites:***
+ + Java version 17 or later
+ + Maven tool on jenkins
+ + Sonarcloud Account
+ + Docker and Dockerhub private repository
+ + Jfrog Account (Free trial is enough)
+
+**Steps:**
+1. Fork this [spring-petclinic](https://github.com/spring-projects/spring-petclinic) repository or Create your own repository with the Java app on your github.
+2. Go to **Home --> Manage Jenkins --> Tools** and select **Maven-3.9.4** for automatic install.
+3. Go to Sonarcloud.io and create your own project ***(Note: down the Project key along with Sonar tokens).***
+4. Replace the project key of yours in the `petclinic/Jenkinsfile`.
+5. Create a Dockerhub private repository for storing the Images.
+6. Create a Jfrog (Docker registery) for storing the Images.
+7. Navigate to your Jenkins server and add the `docker-credentials`,`Jfrog-credentials` and the `Sonar-token`.
+8. Add the `Jenkinsfile` , `Dockerfile` to the forked repository.
+9. Create a new Pipeline and connect with the github repository.
+10. Run the pipeline. If the pipeline is successfull you can see the see the Image available on the Dockerhub.
