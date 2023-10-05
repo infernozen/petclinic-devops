@@ -27,7 +27,7 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
 1. Configure an VM and Install the above packages.
 2. Configure an firewall rule named ***'allow-jenkins'*** to enable tcp-connection on port 8080.
 3. Create a repository named ***'packer'*** (your name) and upload your Jenkinsfile,*.pkr.hcl file and provisioner.sh file (If you are using ansible, upload your playbook file instead) 
-4. Once you setup the Jenkinsfile, Navigate to ***http://[ExternalIP]:8080*** to access the Jenkins server.
+4. Once you setup the Jenkins server, Navigate to ***http://[ExternalIP]:8080*** to access the Jenkins server.
 5. Store the gcp service account keys (which has necessary permissions) in Jenkins Credentials.
 6. Create a Jenkins CI Pipeline with the packer repository using git SCM. Make sure to change Branches to build option from ***Master*** to ***main***.
 7. Run the Pipeline using my Jenkinsfile and check if everything is Green, then proceed to the next step.
