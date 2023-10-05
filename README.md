@@ -26,14 +26,17 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
 **Steps:**
 1. Configure an VM and Install the above packages.
 2. Configure an firewall rule named ***'allow-jenkins'*** to enable tcp-connection on port 8080.
-3. Create a repository named ***'packer'*** (your name) and upload your Jenkinsfile,*.pkr.hcl file and provisioner.sh file (If you are using ansible, upload your playbook file instead) 
-4. Once you setup the Jenkins server, Navigate to ***http://[ExternalIP]:8080*** to access the Jenkins server.
+3. Create a new repository named ***'packer'*** (your name) and upload your Jenkinsfile,*.pkr.hcl file and provisioner.sh file (If you are using ansible, upload your playbook file instead) 
+4. Once you setup the Jenkinsfile, Navigate to ***http://[ExternalIP]:8080*** to access the Jenkins server.
 5. Store the gcp service account keys (which has necessary permissions) in Jenkins Credentials.
 6. Create a Jenkins CI Pipeline with the packer repository using git SCM. Make sure to change Branches to build option from ***Master*** to ***main***.
 7. Run the Pipeline using my Jenkinsfile and check if everything is Green, then proceed to the next step.
 8. Finally go to **Console --> Compute engine --> Images**. You can see our freshly created image on the screen. 
- 
-***NOTE: Dont store your Cloud credentials/secrets on any public repository. In this Demo I used Jenkins Credentials to store the Secrets of my gcp service account.***
 
-# Currently working on phase 2 ( I will update this repo once the project is done)
+ 
+> ***NOTE: Dont store your Cloud credentials/secrets on any public repository. In this Demo I used Jenkins Credentials to store the Secrets of my gcp service account.***
+
+I have attached a video of me running the pipeline.
+
+# Building and Pushing Docker Images with Security checks:
 ![phase_2](images/phase_2.png)
