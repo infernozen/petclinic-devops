@@ -36,6 +36,15 @@ By pre-building machine images using Packer and provisioner (Here i used shell s
  
 > ***NOTE: Dont store your Cloud credentials/secrets on any public repository. In this Demo I used Jenkins Credentials to store the Secrets of my gcp service account.***
 
+<details>
+<summary><strong>Result</strong></summary>
+<h3>Pipeline Successfull !!</h3>
+<img src='images/jenkins-packer.png'>
+<br>
+<h3>Custom Image Created !!</h3>
+<img src='images/packer-result.png'>
+</details>
+
 ==================== I will upload a demo video here =====================
 
 # Building and Pushing Docker Images with Security checks:
@@ -65,3 +74,17 @@ Building and pushing Docker images with security checks is imperative to safegua
 8. Add the `Jenkinsfile` , `Dockerfile` to the forked repository.
 9. Create a new Pipeline and connect with the github repository.
 10. Run the pipeline. If the pipeline is successfull you can see the see the Image available on the Dockerhub.
+
+<details>
+<summary><strong>Result</strong></summary>
+<h3 padding-up=0>Sonar Cloud Scan Reports</h3>
+<img src='images/scan-results.png'>
+<br>
+<h3>Pipeline successfull !!</h3>
+<img src='images/jenkins-petclinic.png'>
+<br>
+<h3>Dockerhub updated!!</h3>
+<img src='images/docker-petclinic.png'>
+</details>
+
+==================== I will upload a demo video here =====================
