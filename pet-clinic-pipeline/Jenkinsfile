@@ -1,0 +1,48 @@
+pipeline {
+  agent any
+  tools {
+    maven 'Maven-3.9.4'
+  }
+  environment {
+    SONAR_TOKEN = credentials('sonar-token')
+  }
+
+  stages{
+    stage('Repository Scan'){
+      steps{
+        script{
+          echo "Scanning repository"
+          env.SONAR_TOKEN = "${SONAR_TOKEN}"
+          sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=infernozen-petclinic_scanner"
+        }
+      }
+    }
+    stage('Build Jar'){
+      steps{
+        script{
+          echo "Building jar file"
+          sh 'mvn clean package -Dskiptests=true'
+        }
+      }
+    }
+    stage('Build docker image'){
+     steps{
+       script{
+         echo "Building docker image"
+         sh 'sudo docker build -t rosangcp/petclinic:$BUILD_NUMBER .'
+       }
+     }
+   }
+   stage('Push Image to dockerhub'){
+     steps{
+       script{
+         echo "Pushing docker image to docker hub"
+         withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+           sh 'echo $PASS | sudo docker login -u $USER --password-stdin'  
+           sh 'sudo docker push rosangcp/petclinic:$BUILD_NUMBER'
+         }
+       }
+     }
+   }
+  }
+}
