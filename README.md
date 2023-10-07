@@ -69,7 +69,7 @@ Building and pushing Docker images with security checks is imperative to safegua
 3. Go to Sonarcloud.io and create your own project ***(Note: down the Project key along with Sonar tokens).***
 4. Replace the project key of yours in the `petclinic/Jenkinsfile`.
 5. Create a Dockerhub private repository for storing the Images.
-6. Create a Jfrog (Docker registery) for storing the Images.
+6. Create a Jfrog (Docker registery) for storing the Images. (use either dockerhub or Jfrog)
 7. Navigate to your Jenkins server and add the `docker-credentials`,`Jfrog-credentials` and the `Sonar-token`.
 8. Add the `Jenkinsfile` , `Dockerfile` to the forked repository.
 9. Create a new Pipeline and connect with the github repository.
@@ -88,3 +88,5 @@ Building and pushing Docker images with security checks is imperative to safegua
 </details>
 
 ==================== I will upload a demo video here =====================
+
+# Currently working on creating the Iac with Terraform (Final Phase):
