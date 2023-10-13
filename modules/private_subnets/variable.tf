@@ -6,6 +6,8 @@ variable "subnet03_cidr" {}
 
 variable "subnet04_cidr" {}
 
+variable "subnet05_cidr" {}
+
 variable "vpc_id" {}
 
 variable "nat_gw" {}

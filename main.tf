@@ -37,6 +37,7 @@ module "private-subnet" {
   env_prefix     = var.env_prefix
   subnet03_cidr  = var.subnet03_cidr
   subnet04_cidr  = var.subnet04_cidr
+  subnet05_cidr  = var.subnet05_cidr
   vpc_id         = module.vpc.my_pc_vpc_output
   nat_gw         = module.nat-gateway.nat_gateway_self_link 
 }
@@ -46,4 +47,12 @@ module "nat-gateway"{
   vpc_id         = module.vpc.my_pc_vpc_output
   priv_subnet01  = module.private-subnet.my_pc_private_subnet_output01
   priv_subnet02  = module.private-subnet.my_pc_private_subnet_output02
+}
+
+module "firewall"{
+  source         = "./modules/firewall_rules"
+  vpc_id         = module.vpc.my_pc_vpc_output
+  ports_vm       = var.ports_vm
+  ports_lb       = var.ports_lb
+  ports_sql      = var.ports_sql  
 }

@@ -15,6 +15,14 @@ subnet02_cidr = "10.20.2.0/24"
 //private
 subnet03_cidr = "10.20.3.0/24"
 subnet04_cidr = "10.20.4.0/24"
+subnet05_cidr = "10.20.5.0/24"
+
+image = "gcp-mi-1696510141" //ubuntu 22.04
+
+ports_vm = [80, 8080]
+ports_lb = [22, 80, 443, 8080]
+ports_sql = [3306]
+
 
 
 
