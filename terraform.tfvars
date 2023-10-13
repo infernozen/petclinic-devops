@@ -1,12 +1,12 @@
 region = "asia-south1"
-//zone = "asia-south1-c"
 
 env_prefix = "pet-clininc"
 
 instance_type1  = "e2-micro"
 instance_type2 = "e2-micro"
 
-//pub_route_cidr = var.pub_route_cidr
+//allow all
+pub_route_cidr = "0.0.0.0/0"
 
 //public
 subnet01_cidr = "10.20.1.0/24"

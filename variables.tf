@@ -5,6 +5,8 @@ variable "env_prefix"{}
 variable "instance_type1" {}
 variable "instance_type2" {}
 
+variable "pub_route_cidr"{}
+
 variable "subnet01_cidr" {}
 variable "subnet02_cidr" {}
 
