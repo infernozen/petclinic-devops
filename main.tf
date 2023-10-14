@@ -56,3 +56,14 @@ module "firewall"{
   ports_lb       = var.ports_lb
   ports_sql      = var.ports_sql  
 }
+
+# module "mysql"{
+#   source          = "./modules/cloud_sql"
+#   region          = var.region
+#   username        = var.SQL_USERNAME
+#   password        = var.SQL_USERNAME
+#   private_subnet1 = var.subnet03_cidr
+#   private_subnet2 = var.subnet04_cidr
+#   vpc_id          = module.vpc.my_pc_vpc_output
+# }
+

@@ -23,6 +23,10 @@ ports_vm = [80, 8080]
 ports_lb = [22, 80, 443, 8080]
 ports_sql = [3306]
 
+#DB
+SQL_USERNAME = "petclinic"
+SQL_PASSWORD = "1234"
+
 
 
 

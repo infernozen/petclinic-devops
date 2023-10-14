@@ -28,5 +28,8 @@ variable "ports_sql" {
 
 variable "image" {}
 
+variable "SQL_USERNAME" {}
+variable "SQL_PASSWORD" {}
+
 
 
