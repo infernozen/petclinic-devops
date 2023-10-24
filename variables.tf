@@ -30,6 +30,7 @@ variable "image" {}
 
 variable "SQL_USERNAME" {}
 variable "SQL_PASSWORD" {}
+variable "root_password" {}
 
 
 

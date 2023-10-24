@@ -1,6 +1,6 @@
 resource "google_sql_database_instance" "my-pc-sql" {
   name                = "petclinic-sql"
-  database_version    = "MYSQL_5_7"
+  database_version    = "MYSQL_8_0"
   region              = var.region
   deletion_protection = false
   
@@ -19,19 +19,13 @@ resource "google_sql_database_instance" "my-pc-sql" {
     }
     ip_configuration {
       ipv4_enabled           = true
-      authorized_networks {
-        value = var.private_subnet1
-      }
-      authorized_networks {
-        value = var.private_subnet2
-      }
     }
   }
-  root_password = var.password
+  root_password = var.root
 }
 
 resource "google_sql_database" "my-database" {
-  name     = "mydb"
+  name     = "petclinic"
   instance = google_sql_database_instance.my-pc-sql.name
 }
 
@@ -46,6 +40,8 @@ resource "google_sql_ssl_cert" "my-db-ssl-cert" {
   common_name = "mysql-cert"
 }
 
+
+#connection name is required for the app to connect with the db
 output "db_instance_endpoint" {
-  value = google_sql_database_instance.my-pc-sql.ip_address
+  value = google_sql_database_instance.my-pc-sql.connection_name
 }

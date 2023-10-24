@@ -1,6 +1,6 @@
 region = "asia-south1"
 
-env_prefix = "pet-clininc"
+env_prefix = "pet-clinic"
 
 instance_type1  = "e2-micro"
 instance_type2 = "e2-micro"
@@ -19,13 +19,14 @@ subnet05_cidr = "10.20.5.0/24"
 
 image = "gcp-mi-1696510141" //ubuntu 22.04
 
-ports_vm = [80, 8080]
+ports_vm = [22, 80, 8080]
 ports_lb = [22, 80, 443, 8080]
 ports_sql = [3306]
 
 #DB
 SQL_USERNAME = "petclinic"
-SQL_PASSWORD = "1234"
+SQL_PASSWORD = "petclinic"
+root_password = "root"
 
 
 

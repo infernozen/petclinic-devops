@@ -15,7 +15,7 @@ resource "google_compute_firewall" "pc_pub_fw" {
 
   source_ranges = ["0.0.0.0/0"]
 
-  target_tags = ["pc-pub-tag"]
+  target_tags = ["pet-clinic"]
 }
 
 //=======Firewall Rules for Load Balancer=========
@@ -35,7 +35,7 @@ resource "google_compute_firewall" "pc_lb_fw" {
 
   source_ranges = ["0.0.0.0/0"]
 
-  target_tags = ["pc-lb-tag"]
+  target_tags = ["pet-clinic"]
 }
 
 //=======Firewall Rules for SQL=========
@@ -55,7 +55,7 @@ resource "google_compute_firewall" "sql_fw" {
 
   source_ranges = ["0.0.0.0/0"]
 
-  target_tags = ["sql-tag"]
+  target_tags = ["pet-clinic"]
 }
 
 //================ outputs =======================

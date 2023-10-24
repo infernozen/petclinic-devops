@@ -57,13 +57,25 @@ module "firewall"{
   ports_sql      = var.ports_sql  
 }
 
-# module "mysql"{
-#   source          = "./modules/cloud_sql"
-#   region          = var.region
-#   username        = var.SQL_USERNAME
-#   password        = var.SQL_USERNAME
-#   private_subnet1 = var.subnet03_cidr
-#   private_subnet2 = var.subnet04_cidr
-#   vpc_id          = module.vpc.my_pc_vpc_output
-# }
+module "mysql"{
+  source          = "./modules/cloud_sql"
+  region          = var.region
+  username        = var.SQL_USERNAME
+  password        = var.SQL_PASSWORD
+  root            = var.root_password
+  vpc_id          = module.vpc.my_pc_vpc_output
+}
 
+module "VM"{
+  source           = "./modules/web_server"
+  private_subnet1  = module.private-subnet.my_pc_private_subnet_output01
+  private_subnet2  = module.private-subnet.my_pc_private_subnet_output02
+  sql_endpoint     = module.mysql.db_instance_endpoint
+  username         = var.SQL_USERNAME
+  password         = var.SQL_PASSWORD
+  root_password    = var.root_password
+  image            = var.image
+  instance_type    = var.instance_type1
+  env_prefix       = var.env_prefix  
+  depends_on       = [ module.mysql ]   
+}

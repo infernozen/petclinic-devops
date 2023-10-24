@@ -4,8 +4,6 @@ variable "username" {}
 
 variable "password" {}
 
-variable "private_subnet1" {}
-
-variable "private_subnet2" {}
+variable "root" {}
 
 variable "vpc_id" {}
