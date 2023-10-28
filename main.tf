@@ -37,7 +37,6 @@ module "private-subnet" {
   env_prefix     = var.env_prefix
   subnet03_cidr  = var.subnet03_cidr
   subnet04_cidr  = var.subnet04_cidr
-  subnet05_cidr  = var.subnet05_cidr
   vpc_id         = module.vpc.my_pc_vpc_output
   nat_gw         = module.nat-gateway.nat_gateway_self_link 
 }
@@ -66,7 +65,7 @@ module "mysql"{
   vpc_id          = module.vpc.my_pc_vpc_output
 }
 
-module "VM"{
+module "instance-group"{
   source           = "./modules/web_server"
   private_subnet1  = module.private-subnet.my_pc_private_subnet_output01
   private_subnet2  = module.private-subnet.my_pc_private_subnet_output02

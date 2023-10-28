@@ -2,8 +2,8 @@ region = "asia-south1"
 
 env_prefix = "pet-clinic"
 
-instance_type1  = "e2-micro"
-instance_type2 = "e2-micro"
+instance_type1  = "e2-medium"
+instance_type2 = "e2-medium"
 
 //allow all
 pub_route_cidr = "0.0.0.0/0"
@@ -15,7 +15,6 @@ subnet02_cidr = "10.20.2.0/24"
 //private
 subnet03_cidr = "10.20.3.0/24"
 subnet04_cidr = "10.20.4.0/24"
-subnet05_cidr = "10.20.5.0/24"
 
 image = "gcp-mi-1696510141" //ubuntu 22.04
 

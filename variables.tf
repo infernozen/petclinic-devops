@@ -12,7 +12,6 @@ variable "subnet02_cidr" {}
 
 variable "subnet03_cidr" {}
 variable "subnet04_cidr" {}
-variable "subnet05_cidr" {}
 
 variable "ports_vm" {
   type = list(number)
