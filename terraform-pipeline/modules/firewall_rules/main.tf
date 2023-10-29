@@ -38,7 +38,7 @@ resource "google_compute_firewall" "sql_fw" {
   target_tags = ["pet-clinic"]
 }
 
-//================ outputs =======================
+//================ outputs ======================
 output "my_pc_ec2_fw_output" {
   value = google_compute_firewall.pc_pub_fw.self_link
 }
