@@ -1,4 +1,4 @@
-#Instance template for subnet 1
+#Instance template for subnet-1
 resource "google_compute_instance_template" "pc_instance_template_1" {
   name = "pc-instance-template-1"
   tags = [var.env_prefix]
