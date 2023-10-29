@@ -131,15 +131,17 @@ In this final phase of our IaC project using Terraform, we are driven by several
 <summary><strong>Verify Infrastructure</strong></summary>
 <h3 padding-up=0>FirewallRules Verify !!</h3>
 <img src='images/firewall-rules-verify.png'><br>
+<h3 padding-up=0>Subnets Verify !!</h3>
+<img src='images/subnets-verify.png'><br>
 <h3>VM verify !!</h3>
 <img src='images/vm-verify.png'><br>
 <h3>MIG verify !!</h3>
-<img src='images/mig_1.png'><br>
+<img src='images/mig-verify.png'><br>
 <h3>Cloud SQL verify !!</h3>
 <img src='images/cloudsql-verify.png'><br>
 <h3>Cloud NAT verify !!</h3>
 <img src='images/cloudnat-verify.png'><br>
-<h3>Cloud LoadBalancer verify !!</h3>
+<h3>LoadBalancer verify !!</h3>
 <img src='images/lb-verify.png'><br>
 </details>
 
