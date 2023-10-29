@@ -110,17 +110,37 @@ In this final phase of our IaC project using Terraform, we are driven by several
 1. Setup **Terraform** on your **jenkins-host** (Make sure `default_application_credentials` have necessary permission).
 2. Copy the terraform code from this github repository to your own repository.
 3. Replace the Required parameters such as `project-id`,`image`,`bucket-name` with your own acquired resources.
-4. Create a new Pipeline and connect with the github repository.
+4. Create a **New Pipeline** and connect with your github repository.
 5. Run the pipeline. If the pipeline is successfull, The web-app will be available in the specified domain.
 
 > Make sure to update nameserver of your Domain name registrar's nameserver with your host DNS Zone's nameservers. Or else the domain wont be up.
 
 <details>
 <summary><strong>Result</strong></summary>
-<h3 padding-up=0>Pipeline successfull !!</h3>
+<h3 padding-up=0>Pipeline Successfull !!</h3>
 <img src='images/jenkins-terraform.png'><br>
-<h3>Pipeline successfull !!</h3>
-<img src='images/jenkins-petclinic.png'><br>
-<h3>Dockerhub updated!!</h3>
-<img src='images/docker-petclinic.png'>
+<h3>Website is Up !!</h3>
+<img src='images/petclinic-final.png'><br>
+<h3>Testing Database Connectivity !!</h3>
+<img src='images/Testdb_1.png'><br>
+<h3>Connection Successfull !!</h3>
+<img src='images/testdb_2.png'><br>
 </details>
+
+<details>
+<summary><strong>Verify Infrastructure</strong></summary>
+<h3 padding-up=0>FirewallRules Verify !!</h3>
+<img src='images/firewall-rules-verify.png'><br>
+<h3>VM verify !!</h3>
+<img src='images/vm-verify.png'><br>
+<h3>MIG verify !!</h3>
+<img src='images/mig_1.png'><br>
+<h3>Cloud SQL verify !!</h3>
+<img src='images/cloudsql-verify.png'><br>
+<h3>Cloud NAT verify !!</h3>
+<img src='images/cloudnat-verify.png'><br>
+<h3>Cloud LoadBalancer verify !!</h3>
+<img src='images/lb-verify.png'><br>
+</details>
+
+==================== I will upload a demo video here =====================
