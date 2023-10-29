@@ -1,6 +1,6 @@
 FROM openjdk:22-jdk-bullseye
 
-EXPOSE 8080
+EXPOSE 8081
 
 COPY ./target/spring-petclinic-3.1.0-SNAPSHOT.jar /usr/app/
 
