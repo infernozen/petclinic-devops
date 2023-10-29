@@ -6,6 +6,7 @@ resource "google_compute_network" "pc_vpc" {
   # delete_default_routes_on_create = true
 }
 
+# output vpc
 output "my_pc_vpc_output" {
   value = google_compute_network.pc_vpc.self_link
 }
