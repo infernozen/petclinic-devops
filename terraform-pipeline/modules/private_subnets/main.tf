@@ -1,3 +1,4 @@
+# creating two private subnets
 resource "google_compute_subnetwork" "pc_private_subnet01" {
   name          = "private-subnet1" 
   network       = var.vpc_id
