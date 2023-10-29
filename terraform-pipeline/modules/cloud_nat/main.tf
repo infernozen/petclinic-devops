@@ -1,10 +1,10 @@
-//=======Cloud router=========//
+//=======Cloud router========//
 resource "google_compute_router" "nat-router" {
   name = "nat-router"
   network = var.vpc_id
 }
 
-//======= Cloud NAT =========//
+//======= Cloud NAT ========//
 resource "google_compute_router_nat" "cloud-nat" {
   name                   = "nat-config"
   router                 = google_compute_router.nat-router.name
