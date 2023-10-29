@@ -26,7 +26,6 @@ resource "google_compute_router_nat" "cloud-nat" {
   }
 }
 
-# Note: You'll need to configure firewall rules to allow/deny traffic as needed.
 output "nat_gateway_self_link" {
   value = google_compute_router.nat-router.self_link
 }

@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages {
-        stage('Terraform-init') {
+        stage('Terraform-Init') {
             steps {
                 echo 'initializing Terraform'
                 sh 'terraform init'
@@ -15,5 +15,13 @@ pipeline{
             }
         }
     }
-    
+
+    stage('Terraform Apply'){
+        steps {
+            script {
+                echo 'Creating resources'
+                sh 'terraform apply -auto-approve'
+            }
+        }
+    }    
 }

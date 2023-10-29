@@ -10,14 +10,7 @@ variable "pub_route_cidr"{}
 variable "subnet01_cidr" {}
 variable "subnet02_cidr" {}
 
-variable "subnet03_cidr" {}
-variable "subnet04_cidr" {}
-
 variable "ports_vm" {
-  type = list(number)
-}
-
-variable "ports_lb" {
   type = list(number)
 }
 

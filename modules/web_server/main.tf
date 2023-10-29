@@ -1,4 +1,4 @@
-#Instance template
+#Instance template for subnet 1
 resource "google_compute_instance_template" "pc_instance_template_1" {
   name = "pc-instance-template-1"
   tags = [var.env_prefix]
@@ -30,7 +30,7 @@ resource "google_compute_instance_template" "pc_instance_template_1" {
   }
 }
 
-#Instance template
+#Instance template for subnet 2
 # resource "google_compute_instance_template" "pc_instance_template_2" {
 #   name = "pc-instance-template-2"
 #   tags = [var.env_prefix]
@@ -108,8 +108,20 @@ resource "google_compute_instance_group_manager" "pcserver_1" {
     port = 8080
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
   auto_healing_policies {
     health_check      = google_compute_health_check.autohealing.id
     initial_delay_sec = 10
   }
+}
+
+output "pc_server1_ig" {
+  value = google_compute_instance_group_manager.pcserver_1.instance_group
+}
+
+output "pc_healthcheck_id" {
+  value = google_compute_health_check.autohealing.id
 }

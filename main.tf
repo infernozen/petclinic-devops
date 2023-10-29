@@ -23,20 +23,11 @@ module "vpc" {
   source = "./modules/vpc"
 }
 
-module "public-subnet"{
-  source         = "./modules/public_subnets"
-  env_prefix     = var.env_prefix
-  pub_route_cidr = var.pub_route_cidr
-  subnet01_cidr  = var.subnet01_cidr
-  subnet02_cidr  = var.subnet02_cidr
-  vpc_id         = module.vpc.my_pc_vpc_output
-}
-
 module "private-subnet" {
   source         = "./modules/private_subnets"
   env_prefix     = var.env_prefix
-  subnet03_cidr  = var.subnet03_cidr
-  subnet04_cidr  = var.subnet04_cidr
+  subnet01_cidr  = var.subnet01_cidr
+  subnet02_cidr  = var.subnet02_cidr
   vpc_id         = module.vpc.my_pc_vpc_output
   nat_gw         = module.nat-gateway.nat_gateway_self_link 
 }
@@ -52,7 +43,6 @@ module "firewall"{
   source         = "./modules/firewall_rules"
   vpc_id         = module.vpc.my_pc_vpc_output
   ports_vm       = var.ports_vm
-  ports_lb       = var.ports_lb
   ports_sql      = var.ports_sql  
 }
 
@@ -78,3 +68,41 @@ module "instance-group"{
   env_prefix       = var.env_prefix  
   depends_on       = [ module.mysql ]   
 }
+
+module "load_balancer"{
+  source           = "./modules/load_balancer"
+  pc_server1       = module.instance-group.pc_server1_ig
+  health_check     = module.instance-group.pc_healthcheck_id 
+  depends_on       = [ module.instance-group ]
+}
+
+//========== Cloud DNS ==========
+# resource "google_dns_managed_zone" "pc-dns" {
+#   name        = "pc-dns"
+#   dns_name    = "infernozen.cloud."
+#   lifecycle {
+#     prevent_destroy = true 
+#   }
+# }
+
+# Get the details of my domain ================
+data "google_dns_managed_zone" "pc-dns" {
+  name        = "pc-dns"
+}
+
+resource "google_dns_record_set" "pc-A-record-dns" {
+  name = "infernozen.cloud."
+  type    = "A"
+  ttl     = 300
+  managed_zone = data.google_dns_managed_zone.pc-dns.name
+  rrdatas = [module.load_balancer.lb_ip_address]  
+}
+
+resource "google_dns_record_set" "pc-CNAME-record-dns" {
+  name         = "www.infernozen.cloud."
+  type         = "CNAME"
+  ttl          = 3600
+  managed_zone = data.google_dns_managed_zone.pc-dns.name
+  rrdatas      = ["infernozen.cloud."]
+}
+
