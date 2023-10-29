@@ -8,6 +8,6 @@ WORKDIR /usr/app
 
 ARG VALUE="not set"
 
-ENV MYSQL_URL=${VALUE} 
+ENV CONNECTION_NAME=${VALUE} 
 
 CMD ["java", "-jar", "spring-petclinic-3.1.0-SNAPSHOT.jar"]
