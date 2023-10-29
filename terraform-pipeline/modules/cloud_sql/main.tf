@@ -1,3 +1,4 @@
+# creating a sql instance
 resource "google_sql_database_instance" "my-pc-sql" {
   name                = "petclinic-sql"
   database_version    = "MYSQL_8_0"
