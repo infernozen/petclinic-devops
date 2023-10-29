@@ -72,8 +72,8 @@ Building and pushing Docker images with security checks is imperative to safegua
 6. Create a Jfrog (Docker registery) for storing the Images. (use either dockerhub or Jfrog)
 7. Navigate to your Jenkins server and add the `docker-credentials`,`Jfrog-credentials` and the `Sonar-token`.
 8. Add the `Jenkinsfile` , `Dockerfile` to the forked repository.
-9. Create a new Pipeline and connect with the github repository.
-10. Run the pipeline. If the pipeline is successfull you can see the see the Image available on the Dockerhub.
+9. Create a new Pipeline and connect with your github repository.
+10. Run the pipeline. If the pipeline is successfull you can see the Image available on the Dockerhub.
 
 <details>
 <summary><strong>Result</strong></summary>
@@ -89,4 +89,38 @@ Building and pushing Docker images with security checks is imperative to safegua
 
 ==================== I will upload a demo video here =====================
 
-# Currently working on creating the Iac with Terraform (Final Phase):
+# Creating Iac with Terraform (Final Phase):
+***Why are we doing this?***
+
+In this final phase of our IaC project using Terraform, we are driven by several crucial objectives. Our primary aim is to automate infrastructure provisioning and management for increased efficiency, reduced errors, and faster deployments. Scalability and flexibility are paramount, allowing us to adapt to changing demands seamlessly. IaC ensures consistency, reproducibility, and better version control, enhancing infrastructure reliability.
+
+ ***Prerequisites:***
+ + Terraform V1.6.0 or later
+ + A Service Account with Necessary Permissions
+ + Jenkins Server
+   
+![phase_3](images/phase_3.png)
+
+<details>
+<summary><strong>Architecture Diagram</strong></summary>
+<img src='images/architecture-diagram.png'> <br>
+</details>
+
+**Steps:**
+1. Setup **Terraform** on your **jenkins-host** (Make sure `default_application_credentials` have necessary permission).
+2. Copy the terraform code from this github repository to your own repository.
+3. Replace the Required parameters such as `project-id`,`image`,`bucket-name` with your own acquired resources.
+4. Create a new Pipeline and connect with the github repository.
+5. Run the pipeline. If the pipeline is successfull, The web-app will be available in the specified domain.
+
+> Make sure to update nameserver of your Domain name registrar's nameserver with your host DNS Zone's nameservers. Or else the domain wont be up.
+
+<details>
+<summary><strong>Result</strong></summary>
+<h3 padding-up=0>Pipeline successfull !!</h3>
+<img src='images/jenkins-terraform.png'><br>
+<h3>Pipeline successfull !!</h3>
+<img src='images/jenkins-petclinic.png'><br>
+<h3>Dockerhub updated!!</h3>
+<img src='images/docker-petclinic.png'>
+</details>
